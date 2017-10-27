@@ -9,7 +9,7 @@ define(['jquery', 'common', 'layer', 'jqueryBackstretch'], function ($, COMMON, 
             /**
              * 加载背景图片
              */
-            $.backstretch("img/bg.jpg");
+            $.backstretch("img/bg.png");
 
             $('.login-form input[type="text"], .login-form input[type="password"], .login-form textarea').on('focus', function () {
 
