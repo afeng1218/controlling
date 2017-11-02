@@ -39,9 +39,9 @@ define(['jquery', 'common', 'layer', 'bootstrap'], function ($, COMMON, layer) {
         showMenuBtn:function(id,name){//后续中要ajax查询
             /*获取用户权限 加载权限菜单*/
             COMMON.WS.local('main/getMenuButton', 'get', {'id':id}, true, function (map) {
-                if(map){
-                    $("#but").empty();
-                    $(".menuButton").unbind('click');
+                $(".menuButton").unbind('click');
+                $("#but").empty();
+                if(map!=''){
                     $("#content").attr("src",map[0].url);
                     $("#titleId").html(name+"-"+map[0].title);
                     for(var i=0;i<map.length;i++){
@@ -53,9 +53,8 @@ define(['jquery', 'common', 'layer', 'bootstrap'], function ($, COMMON, layer) {
                         return null;
                     });
                 }else{
-                    $(".menuButton").unbind('click');
-                    $("#but").empty();
                     $("#content").attr("src",null);
+                    $("#titleId").html(name);
                 };map=null;
             });
         },
