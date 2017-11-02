@@ -49,7 +49,7 @@
 * Some default settings that are used throughout the button library.
 * Changes to these settings will be picked up by all of the other modules.
 * The colors used here are the default colors for the base button (gray).
-* The font size and height are used to set the base size for the buttons.
+* The fonts size and height are used to set the base size for the buttons.
 * The size values will be used to calculate the larger and smaller button sizes.
 */
 /*
@@ -658,7 +658,7 @@
     /*
     * Borderles Size Adjustment
     *
-    * The font-size must be large to compinsate for
+    * The fonts-size must be large to compinsate for
     * the lack of a hit target.
     */ }
 .button-borderless:hover, .button-borderless:focus {

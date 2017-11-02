@@ -250,7 +250,7 @@
             '        <h3 class="modal-title">Detailed Preview <small>{title}</small></h3>\n' +
             '      </div>\n' +
             '      <div class="modal-body">\n' +
-            '        <textarea class="form-control" style="font-family:Monaco,Consolas,monospace; height: {height}px;" readonly>{body}</textarea>\n' +
+            '        <textarea class="form-control" style="fonts-family:Monaco,Consolas,monospace; height: {height}px;" readonly>{body}</textarea>\n' +
             '      </div>\n' +
             '    </div>\n' +
             '  </div>\n' +

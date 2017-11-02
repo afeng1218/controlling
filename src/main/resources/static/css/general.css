@@ -904,14 +904,15 @@ a, a:link, a:hover, a:visited, a:active {
 /*图标字体*/
 @font-face {
     font-family: 'iconfont';
-    src: url('../font/iconfont.eot'); /* IE9*/
-    src: url('../font/iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */ url('../font/iconfont.woff') format('woff'), /* chrome、firefox */ url('../font/iconfont.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/ url('../font/iconfont.svg#iconfont') format('svg'); /* iOS 4.1- */
+    src: url('../fonts/iconfont.eot'); /* IE9*/
+    src: url('../fonts/iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */ url('../fonts/iconfont.woff') format('woff'), /* chrome、firefox */ url('../fonts/iconfont.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/ url('../fonts/iconfont.svg#iconfont') format('svg'); /* iOS 4.1- */
 }
 
 .iconfont {
     font-family: "iconfont" !important;
-    font-size: 16px;
+    font-size: 25px;
     font-style: normal;
+    cursor:pointer;
     -webkit-font-smoothing: antialiased;
     -webkit-text-stroke-width: 0.2px;
     -moz-osx-font-smoothing: grayscale;
@@ -1429,4 +1430,11 @@ footer {
     top: 0;
     left: 0;
     width: 100%;
+}
+.menuClick{
+    height:40px;
+    border: solid red 1px;
+    margin-left:16px;
+    margin-top:4px;
+    color: yellow;
 }

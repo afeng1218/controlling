@@ -16,13 +16,11 @@ import java.util.Map;
 @RestController
 @RequestMapping("/login")
 public class Login {
-
     /**
      * 登陆service接口
      */
     @Autowired
     private ILoginService service;
-
     /**
      * 用户登陆验证
      *
@@ -35,40 +33,29 @@ public class Login {
     @RequestMapping(value = "/checkUser", method = RequestMethod.GET)
     String checkUser(@RequestParam("name") String name, @RequestParam("password") String password,
                      HttpServletRequest request) throws IOException {
-
         JSONObject jsonObject = new JSONObject();
         //登录返回结果
         String loginStatus = service.checkUser(name, password).split(":")[1];
-
         if (loginStatus.equals("FALSE")) {
-
             jsonObject.append("status", "FALSE");
-
         } else {
-
             /**
              * 获取请求session
              */
             HttpSession session = request.getSession();
-
             /**
              * 设置会话登陆状态
              */
             session.setAttribute("SUCCESS", loginStatus);
-
             /**
              * 设置会话用户名
              */
             session.setAttribute("USER_NAME", name.trim());
-
-			/*设置账号审批权限 和默认库房信息*/
-            Map result = (Map) service.getApprovalAuthorityAndDefaultStorage(name);
-
+			/*设置账号审批权限*/
+            Map result = (Map) service.getApprovalAuthorityAndDefault(name);
             session.setAttribute("APPROVAL_AUTHORITY", result.get("orderApprovalAuthority"));
-            session.setAttribute("DEFAULT_STORAGE", result.get("storageRoomNo"));
             /*设置session最大寿命*/
             session.setMaxInactiveInterval(60 * 60 * 24);
-
             /**
              * 用户名
              */
@@ -82,18 +69,20 @@ public class Login {
              */
             jsonObject.append("orderApprovalAuthority", result.get("orderApprovalAuthority").toString());
             /**
-             * 默认库房编号
-             */
-            jsonObject.append("defaultStorageRoomNo", result.get("storageRoomNo"));
-            /**
              * 页面权限
              */
             jsonObject.append("pageAuthority", result.get("pageAuthority"));
-
         }
-
         return jsonObject.toString();
-
     }
-
+    /**
+     * 检查用户是否需要密码登陆
+     *
+     * @param name
+     * @return
+     */
+    @RequestMapping(value = "/checkNeedPassword", method = RequestMethod.GET)
+    Object checkNeedPassword(@RequestParam("name") String name) {
+        return service.checkNeedPassword(name);
+    }
 }
