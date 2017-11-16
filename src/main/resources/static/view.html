@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<head xmlns:display="http://www.w3.org/1999/xhtml">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=0.5, user-scalable=yes">
+    <title></title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/page/view.css">
+    <link rel="stylesheet" href="//apps.bdimg.com/libs/jqueryui/1.10.4/css/jquery-ui.min.css">
+    <link rel="stylesheet" href="css/gridstack.css">
+    <script src="js/lib/jquery.min.js"></script>
+    <script src="js/lib/jquery-ui.js"></script>
+    <script src="js/lib/lodash.min.js"></script>
+    <script src="js/lib/gridstack.js"></script>
+    <script src="js/lib/jsPlumb-2.2.8.js"></script>
+</head>
+<div id="head">
+    <label>车间：
+        <select style="width: 200px;height: 30px">
+            <option value="volvo">加工车间1</option>
+            <option value="saab">Saab</option>
+            <option value="opel">Opel</option>
+            <option value="audi">Audi</option>
+        </select>
+        <button type="button" class="btn btn-primary btn-sm">增加车间</button>
+    </label>
+    <label>生产线：
+        <select style="width: 200px;height: 30px">
+            <option value="volvo">主轴生产线</option>
+            <option value="saab">Saab</option>
+            <option value="opel">Opel</option>
+            <option value="audi">Audi</option>
+        </select>
+        <button type="button" class="btn btn-primary btn-sm">增加生产线</button>
+    </label>
+</div>
+<div class="panel-body" style="padding: 20px" id="menu">
+    <div class="panel panel-default" style="width: 90px">
+        <div class="panel-heading">拖拽面板</div>
+        <div class="panel-body" style="padding-bottom: 0px" id="catalog">
+            <ul class="list-group">
+                <li style="list-style-type: none">
+                    <!--<a href="javascript:void(0);" class="remove label label-danger"><i class="glyphicon glyphicon-remove"></i>删除</a>-->
+                    <span class="drag label label-default" id="chechuang"><i class="glyphicon glyphicon-move" id="bar"></i>拖动</span>
+                    <button type="button" class="bottom">车床</button>
+                </li>
+                <li style="list-style-type: none">
+                    <!--<a href="javascript:void(0);" class="remove label label-danger"><i class="glyphicon glyphicon-remove"></i>删除</a>-->
+                    <span class="drag label label-default" id="xichuang"><i class="glyphicon glyphicon-move"></i>拖动</span>
+                    <button type="button" class="bottom">铣床</button>
+                </li>
+                <li style="list-style-type: none">
+                    <!--<a href="javascript:void(0);" class="remove label label-danger"><i class="glyphicon glyphicon-remove"></i>删除</a>-->
+                    <span class="drag label label-default" id="mochuang"><i class="glyphicon glyphicon-move"></i>拖动</span>
+                    <button type="button" class="bottom">磨床</button>
+                </li>
+                <li style="list-style-type: none">
+                    <!--<a href="javascript:void(0);" class="remove label label-danger"><i class="glyphicon glyphicon-remove"></i>删除</a>-->
+                    <span class="drag label label-default" id="tangchuang"><i class="glyphicon glyphicon-move"></i>拖动</span>
+                    <button type="button" class="bottom">镗床</button>
+                </li>
+                <li style="list-style-type: none">
+                    <!--<a href="javascript:void(0);" class="remove label label-danger"><i class="glyphicon glyphicon-remove"></i>删除</a>-->
+                    <span class="drag label label-default"><i class="glyphicon glyphicon-move"></i>拖动</span>
+                    <button type="button" class="bottom">其他工位</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div id="container" class="ui_draggable"></div>
+    <!--<div>-->
+        <!--<a class="btn btn-default" id="add-new-widget" href="#">Add Widget</a>-->
+    <!--</div>-->
+    <!--<div class="grid-stack">-->
+    <!--</div>-->
+    <!--<div class="ui-widget ui-helper-clearfix">-->
+    <!--<ul id="sortable" class="gallery ui-helper-reset ui-helper-clearfix">-->
+    <!--</ul>-->
+        <!--<li border="1px" style="height: 500px;width: 800px;" id="sortable">-->
+            <!--<tr height="40">-->
+                <!--<td width="150" id="target1"></td>-->
+                <!--<td width="150" id="target2"></td>-->
+                <!--<td width="150" id="target3"></td>-->
+                <!--<td width="150" id="target4"></td>-->
+            <!--</tr>-->
+            <!--<tr height="40">-->
+                <!--<td width="150" id="target5"></td>-->
+                <!--<td width="150" id="target6"></td>-->
+                <!--<td width="150" id="target7"></td>-->
+                <!--<td width="150" id="target8"></td>-->
+            <!--</tr>-->
+            <!--<tr height="40">-->
+                <!--<td width="150" id="target9"></td>-->
+                <!--<td width="150" id="target10"></td>-->
+                <!--<td width="150" id="target11"></td>-->
+                <!--<td width="150" id="target12"></td>-->
+            <!--</tr>-->
+            <!--<tr height="40">-->
+                <!--<td width="150" id="target13"></td>-->
+                <!--<td width="150" id="target14"></td>-->
+                <!--<td width="150" id="target15"></td>-->
+                <!--<td width="150" id="target16"></td>-->
+            <!--</tr>-->
+            <!--<tr height="40">-->
+                <!--<td width="150" id="target17"></td>-->
+                <!--<td width="150" id="target18"></td>-->
+                <!--<td width="150" id="target19"></td>-->
+                <!--<td width="150" id="target20"></td>-->
+            <!--</tr>-->
+            <!--<tr height="40">-->
+                <!--<td width="150" id="target21"></td>-->
+                <!--<td width="150" id="target22"></td>-->
+                <!--<td width="150" id="target23"></td>-->
+                <!--<td width="150" id="target24"></td>-->
+            <!--</tr>-->
+        <!--</li>-->
+    <!--</ul>-->
+    <!--</div>-->
+</div>
+        <div id="right">
+
+            <table class="table table-bordered" style="width: auto;margin-left: 10px">
+                <tbody>
+                <tr>
+                    <td>资源编号</td>
+                    <td>A140013</td>
+                </tr>
+                <tr>
+                    <td>设备组</td>
+                    <td><select>
+                        <option>螺纹组</option>
+                    </select></td>
+                </tr>
+                <tr>
+                    <td>类别</td>
+                    <td><select>
+                        <option>数控车</option>
+                    </select></td>
+                </tr>
+                <tr>
+                    <td>型号</td>
+                    <td>T3.2</td>
+                </tr>
+                <tr>
+                    <td>费率</td>
+                    <td>20</td>
+                </tr>
+                <tr>
+                    <td>生产线</td>
+                    <td><select>
+                        <option>主轴生产线</option>
+                    </select></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <script data-main="js/main" src="js/require.js"></script>
+</body>
+</html>
+<!--<!DOCTYPE HTML>-->
+<!--<html>-->
+<!--<head>-->
+<!--<style type="text/css">-->
+<!--#div1, #div2-->
+<!--{float:left; width:198px; height:66px; margin:10px;padding:10px;border:1px solid #aaaaaa;}-->
+<!--</style>-->
+<!--<script type="text/javascript">-->
+<!--function allowDrop(ev)-->
+<!--{-->
+<!--ev.preventDefault();-->
+<!--}-->
+
+<!--function drag(ev)-->
+<!--{-->
+<!--ev.dataTransfer.setData("Text",ev.target.id);-->
+<!--}-->
+
+<!--function drop(ev)-->
+<!--{-->
+<!--ev.preventDefault();-->
+<!--var data=ev.dataTransfer.getData("Text");-->
+<!--ev.target.appendChild(document.getElementById(data));-->
+<!--}-->
+<!--</script>-->
+<!--</head>-->
+<!--<body>-->
+
+<!--<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">-->
+<!--<img src="img/icon/logo.png" draggable="true" ondragstart="drag(event)" id="drag1" />-->
+<!--</div>-->
+<!--<div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>-->
+
+<!--</body>-->
+<!--</html>-->
