@@ -24,7 +24,10 @@
             layer: 'lib/layer/layer',
             tableExport: 'lib/tableExport',
             jqueryCookie: 'lib/jquery.cookie',
-            jQueryPrint: 'lib/jQuery.print'
+            jQueryPrint: 'lib/jQuery.print',
+            editable:'lib/bootstrap-editable',
+            bootstraptable:'lib/bootstrap-table',
+            jqueryui:'lib/jquery-ui',
         },
         shim: {
             "bootstrap": {
@@ -92,6 +95,18 @@
             "jqueryMigrate": {
                 deps: ['jquery'],
                 export: 'jqueryMigrate'
+            },
+            "editable": {
+                deps: ['jquery','bootstrap'],
+                export: 'editable'
+            },
+            "bootstraptable": {
+                deps: ['jquery','bootstrap'],
+                export: 'bootstraptable'
+            },
+            "jqueryui":{
+                deps: ['jquery'],
+                export: 'jqueryui'
             }
 
         },
